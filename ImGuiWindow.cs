@@ -1,10 +1,5 @@
-using System;
+using GameSDK;
 using GameSDK.ModHost;
-using GameSDK.ModHost.ImGui;
-
-// Alias System.Numerics vector types for ImGui (avoids ambiguity with UnityEngine)
-using Vector2 = System.Numerics.Vector2;
-using Vector4 = System.Numerics.Vector4;
 
 namespace MyMod
 {
@@ -23,22 +18,16 @@ namespace MyMod
             _callbackId = ImGuiManager.RegisterCallback(
                 "MyMod",
                 Draw,
-                enabled: true);
+                ImGuiPriority.Normal);
 
             logger.Info($"ImGui window registered (callback #{_callbackId})");
-        }
-
-        /// <summary>Unregister the ImGui draw callback. Call this from OnUnload().</summary>
-        public static void Unregister()
-        {
-            ImGuiManager.RemoveCallback(_callbackId);
         }
 
         private static void Draw()
         {
             if (!_windowOpen) return;
 
-            ImGui.SetNextWindowSize(new Vector2(400, 300), ImGuiCond.FirstUseEver);
+            ImGui.SetNextWindowSize(new System.Numerics.Vector2(400, 300), ImGuiCond.FirstUseEver);
 
             if (ImGui.Begin("MyMod", ref _windowOpen))
             {
