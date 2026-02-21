@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net481</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MyMod</RootNamespace>
+    <AssemblyName>MyMod</AssemblyName>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--
+      Reference the auto-generated SDK DLL from your game folder.
+      This is created when MDB_Bridge is injected for the first time.
+      
+      Replace GAME_FOLDER below with your actual game path.
+    -->
+    <Reference Include="GameSDK.ModHost">
+      <HintPath>GAME_FOLDER\MDB\Managed\GameSDK.ModHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <!--
+    Optional: auto-copy your built mod to the game's Mods folder.
+    Uncomment the block below and set the correct path.
+  -->
+  <!--
+  <Target Name="CopyToMods" AfterTargets="Build" Condition="'$(Configuration)'=='Release'">
+    <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll"
+          DestinationFolder="GAME_FOLDER\MDB\Mods\" />
+  </Target>
+  -->
+
+</Project>
