@@ -15,34 +15,14 @@ A starter project for creating mods with [MDB Framework](https://github.com/Zacl
    - Find & replace `MyMod` → `YourModName` across all files
    - Find & replace `MyAuthor` → your name
 
-3. **Set your game path:**
-   - Open the `.csproj` and replace `GAME_FOLDER` with the path to your game (where the `.exe` is)
-
-4. **Remove the template git history** (start fresh):
-   ```bash
-   Remove-Item .git -Recurse -Force
-   git init
-   ```
+3. **Add SDK Reference:**
+   - Copy the SDK from the Managed folder to the mod directory
 
 ## Build
 
 ```bash
 dotnet build -c Release
 ```
-
-## Deploy
-
-Copy `bin\Release\YourModName.dll` into `<GameFolder>\MDB\Mods\`
-
-> **Tip:** Uncomment the `CopyToMods` target in the `.csproj` to auto-deploy on build.
-
-## What's Included
-
-| File | Description |
-|------|-------------|
-| `Mod.cs` | Main mod entry point — `OnLoad`, `OnUpdate`, `OnUnload` |
-| `ImGuiWindow.cs` | ImGui debug window (delete if you don't need UI) |
-| `MyMod.csproj` | Project file with SDK reference |
 
 ## Prerequisites
 
