@@ -2,3 +2,6 @@ bin/
 obj/
 *.user
 .vs/
+
+# Keep local ESP implementation out of the repo
+ESP.cs
