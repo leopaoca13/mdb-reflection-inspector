@@ -1,31 +1,24 @@
-# MDB Mod Template
+# mdb-reflection-inspector
+Reflection Inspector for mdb (unity games) — invoke methods/properties and build objects at runtime.
 
-A starter project for creating mods with [MDB Framework](https://github.com/Zaclin-GIT/MDB).
+## ImGui-based runtime inspector for Unity mods. Inspect classes, invoke methods/properties/fields, construct objects with the built-in Object Builder, register instances and save favorite calls. This variant excludes the ESP overlay and focuses only on the inspector/invocation features.
 
-## Setup
+### Features
+•	Set Namespace, Class and Member to invoke
+•	Choose call kind: method, prop-get, prop-set, field-get, field-set
+•	Add arguments: primitives, registered instances or constructed objects
+•	Object Builder to create complex objects and register them
+•	Save/load favorite calls
+•	Execution log with levels (ok/warn/error)
 
-1. **Clone this template:**
-   ```bash
-   git clone -b mdbmod https://github.com/Zaclin-GIT/MDB.Templates.git MyModName
-   cd MyModName
-   ```
+### Build
+•	Requirements: .NET Framework 4.8.1, C# 9, Visual Studio
+•	Open solution in Visual Studio, build the project and produce the mod DLL
+•	Install the DLL according to the host mod loader instructions
 
-2. **Rename the project:**
-   - Rename `MyMod.csproj` to `YourModName.csproj`
-   - Find & replace `MyMod` → `YourModName` across all files
-   - Find & replace `MyAuthor` → your name
-
-3. **Add SDK Reference:**
-   - Copy the SDK from the Managed folder to the mod directory
-
-## Build
-
-```bash
-dotnet build -c Release
-```
-
-## Prerequisites
-
-- [MDB Framework](https://github.com/Zaclin-GIT/MDB) injected into the game at least once (to generate the SDK)
-- .NET Framework 4.8.1 targeting pack (installed with Visual Studio)
-- .NET SDK 8.0+
+### Usage
+•	Load the mod in the game
+•	Open the "Reflection Inspector" ImGui window
+•	Enter namespace/class/member, select kind and fill arguments
+•	Click "Invoke" to run; results appear in the log and result field
+•	Use Object Builder to create objects and inject them into argument slots
