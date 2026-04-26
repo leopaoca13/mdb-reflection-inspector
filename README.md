@@ -1,7 +1,7 @@
 # mdb-reflection-inspector
 Reflection Inspector for mdb (unity games) — invoke methods/properties and build objects at runtime.
 
-# ImGui-based runtime inspector for Unity mods. Inspect classes, invoke methods/properties/fields, construct objects with the built-in Object Builder, register instances and save favorite calls.
+ImGui-based runtime inspector for Unity mods. Inspect classes, invoke methods/properties/fields, construct objects with the built-in Object Builder, register instances and save favorite calls.
 
 ## Features
 •	Set Namespace, Class and Member to invoke
